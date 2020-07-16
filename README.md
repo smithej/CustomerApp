@@ -7,7 +7,7 @@ Hey friendly developer! Our CEO, Dennis, recently had an ask of us. He needs us 
 I hope you can help us handle it, but I think you're up for the challenge!
 
 > **For real though:**
-> Our team hopes that you can spend around two hours on this challenge. If you finish faster, that's awesome! If not, please don't spend too much longer, and instead just think about what else you might do/have done for our discussion.
+> Our team hopes that you can spend around two-three hours on this challenge. If you finish faster, that's awesome! If not, please don't spend too much longer, and instead just think about what else you might do/have done for our discussion.
 
 # Your Tasks
 
