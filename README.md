@@ -1,8 +1,6 @@
-# Lightyear FullStack Engineer TakeHome Challenge Template
+# Lightyear FullStack Challenge Template
 
-===
-
-# The challenge
+# The Challenge
 
 Hey friendly developer! Our CEO, Dennis, recently had an ask of us. He needs us to create a display of his most important customers, and be able to add, edit, and delete from this list. Unfortunately he has only given us one night to make it happen.
 
@@ -17,7 +15,7 @@ I hope you can help us handle it, but I think you're up for the challenge!
 - Customer information should at least include name, company, priority/importance of some sort (potentially through tags?), and can include any other fields your creativity may see fit.
 - When you have completed the challenge to your satisfaction, and prior to our scheduled discussion, send the zipped solution files to ryan@lightyear.ai.
 
-# Some tips
+# Some Tips
 
 - We've provided you with a basic framework to hopefully get started faster from. This includes a basic Django Rest Framework and Postgres database in a docker container, and a bare bones React app.
 - Feel free to utilize whatever libraries, structure, or even a completely custom solution if you would like. The sky is the limit here!
@@ -25,7 +23,7 @@ I hope you can help us handle it, but I think you're up for the challenge!
 
 # Running the Challenge Framework
 
-If you decide to utilize our framework, we have some quick tips on getting it running on your local machine.
+If you decide to utilize our framework, we have some quick notes on getting it running on your local machine.
 
 ## Backend
 
