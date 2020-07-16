@@ -1,0 +1,13 @@
+.docker-context
+.idea
+node_modules
+dist
+.DS_store
+*.log
+certs
+
+venv
+__pycache__
+*.sql
+*.pem
+frontend/yarn.lock
