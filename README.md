@@ -11,7 +11,7 @@ I hope you can help us handle it, but I think you're up for the challenge!
 
 # Your Tasks
 
-- Primary Objective: create a functional display of customers, as well as basic CRUD ability through a backend API. Functionality is more important than beauty here!
+- Primary Objective: create a functional display of customers, as well as basic CRUD ability through a backend API. Functionality is more important than beauty here, but we also want to see what you've got!
 - Customer information should at least include name, company, priority/importance of some sort (potentially through tags?), and can include any other fields your creativity may see fit.
 - When you have completed the challenge to your satisfaction, and prior to our scheduled discussion, send the zipped solution files to ryan@lightyear.ai.
 
