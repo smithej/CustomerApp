@@ -131,6 +131,6 @@ DEVELOPMENT = json.loads(os.getenv('DEBUG', 'false'))
 
 # we whitelist localhost:3000 because that's where frontend will be served
 CORS_ORIGIN_WHITELIST = (
-    'localhost:3000/',
-    '0.0.0.0:3000/',
+    'http://localhost:3000/',
+    'http://0.0.0.0:3000/',
 )
