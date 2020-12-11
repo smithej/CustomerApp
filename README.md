@@ -2,7 +2,7 @@
 
 # The Challenge
 
-Hey friendly developer! Our CEO, Dennis, recently had an ask of us. He needs us to create a display of his most important customers, and be able to add, edit, and delete from this list. Unfortunately he has only given us one night to make it happen.
+Hey friendly developer! Our CEO, Dennis, recently had an ask of us. He needs us to create a display of his most important customers, and be able to add, edit, and delete from this list.
 
 I hope you can help us handle it, but I think you're up for the challenge!
 
