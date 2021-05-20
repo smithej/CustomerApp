@@ -5,6 +5,7 @@ dist
 .DS_store
 *.log
 certs
+.vscode
 
 venv
 __pycache__

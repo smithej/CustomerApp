@@ -5,6 +5,8 @@ RUN apk add --no-cache --virtual .build-deps \
     libffi-dev jpeg-dev zlib-dev \
     && apk add postgresql-dev
 
+RUN apk add bash
+
 WORKDIR /workspace
 COPY ./requirements.txt /workspace/requirements.txt
 
