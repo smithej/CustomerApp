@@ -34,12 +34,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'corsheaders',
     'rest_framework',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -127,11 +129,11 @@ STATIC_URL = '/static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 DEBUG = json.loads(os.getenv('DEBUG', 'true'))
-ALLOWED_HOSTS = json.loads(os.environ['ALLOWED_HOSTS']) if os.getenv('ALLOWED_HOSTS') else ['localhost']
+ALLOWED_HOSTS = json.loads(os.environ['ALLOWED_HOSTS']) if os.getenv('ALLOWED_HOSTS') else ['localhost', '0.0.0.0']
 DEVELOPMENT = json.loads(os.getenv('DEBUG', 'false'))
 
 # we whitelist localhost:3000 because that's where frontend will be served
 CORS_ORIGIN_WHITELIST = (
-    'http://localhost:3000/',
-    'http://0.0.0.0:3000/',
+    'http://localhost:3000',
+    'http://0.0.0.0:3000',
 )
