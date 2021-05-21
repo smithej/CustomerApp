@@ -1,21 +1,79 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
+
 import './App.css';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
-    );
+import CustomerTable from './components/CustomerTable';
+import API from "./api";
+
+const App = () => {
+  const [customers, setCustomers] = useState([])
+  const [randomCustomer, setRandomCustomer] = useState(null);
+
+  // Make API call to get initial state of customers.
+  React.useEffect(() => {
+    API.get('/api/customers/')
+    .then(response => {
+      if (response.status === 200) {
+        setCustomers(response.data);
+      } else {
+        // TODO: Show an appropriate error message.
+      }
+    });
+  }, []);
+
+  const addCustomer = (customer) => {
+    API.post('/api/customers/', customer)
+    .then(response => {
+      if (response.status === 201) {
+        const customer = response.data;
+        setCustomers([...customers, customer]);
+      } else {
+        // TODO: Show an appropriate error message.
+      }
+    });
+  };
+
+  const updateCustomer = (updatedCustomer) => {
+    const { id } = updatedCustomer;
+    API.put(`/api/customers/${id}/`, updatedCustomer)
+    .then(response => {
+      if (response.status === 204) {
+        setCustomers([...customers, updatedCustomer]);
+      } else {
+        // TODO: Show an appropriate error message.
+      }
+    });
+  };
+
+  const removeCustomer = (idToDelete) => {
+    API.delete(`/api/customers/${idToDelete}/`)
+    .then(response => {
+      if (response.status === 204) {
+        setCustomers(customers.filter(({ id }) => id !== idToDelete));
+      } else {
+        // TODO: Show an appropriate error message.
+      }
+    });
+  };
+
+  const getRandomCustomer = () => {
+    API.get('/api/customers/random/')
+    .then(response => {
+      if (response.status === 200) {
+        setRandomCustomer(response.data);
+      } else {
+        // TODO: Show an appropriate error message.
+      }
+    });
   }
+  
+  return <CustomerTable customers={customers}
+                        addCustomer={addCustomer}
+                        updateCustomer={updateCustomer}
+                        removeCustomer={removeCustomer}
+                        randomCustomer={randomCustomer}
+                        getRandomCustomer={getRandomCustomer}
+          />
 }
 
 export default App;
