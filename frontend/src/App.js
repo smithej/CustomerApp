@@ -9,8 +9,7 @@ const App = () => {
   const [customers, setCustomers] = useState([])
   const [randomCustomer, setRandomCustomer] = useState(null);
 
-  // Make API call to get initial state of customers.
-  React.useEffect(() => {
+  const getCustomers = () => {
     API.get('/api/customers/')
     .then(response => {
       if (response.status === 200) {
@@ -19,8 +18,8 @@ const App = () => {
         // TODO: Show an appropriate error message.
       }
     });
-  }, []);
-
+  };
+  
   const addCustomer = (customer) => {
     API.post('/api/customers/', customer)
     .then(response => {
@@ -33,7 +32,7 @@ const App = () => {
     });
   };
 
-  const updateCustomer = (updatedCustomer) => {
+  const updateCustomer = (updatedCustomer, refetchCustomers=false) => {
     const { id } = updatedCustomer;
     API.put(`/api/customers/${id}/`, updatedCustomer)
     .then(response => {
@@ -42,6 +41,8 @@ const App = () => {
       } else {
         // TODO: Show an appropriate error message.
       }
+
+      if (refetchCustomers) getCustomers();
     });
   };
 
@@ -60,13 +61,21 @@ const App = () => {
     API.get('/api/customers/random/')
     .then(response => {
       if (response.status === 200) {
-        setRandomCustomer(response.data);
+        const updatedRandomCustomer = {
+          ...response.data,
+          "priority": "C",
+        };
+        updateCustomer(updatedRandomCustomer, true);
+        setRandomCustomer(updatedRandomCustomer);
       } else {
         // TODO: Show an appropriate error message.
       }
     });
   }
   
+  // Make API call to get initial state of customers.
+  React.useEffect(getCustomers, []);
+
   return <CustomerTable customers={customers}
                         addCustomer={addCustomer}
                         updateCustomer={updateCustomer}
